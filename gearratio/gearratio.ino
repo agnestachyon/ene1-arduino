@@ -32,8 +32,8 @@ void loop() {
   gearratio = OB1diff / OB2diff;
   speed = OB1diff * OB1diff * tire / OB2diff;
 
-  Serial.print(getposition);
-  Serial.print(,);
+  Serial.print(get_position(gearratio));
+  Serial.print(",");
   Serial.println(speed);
 }
 
@@ -51,7 +51,7 @@ void generateOB2rev(){
   // OB2rpm = 60.0 / OB2diff; //回転数[rpm]を計算
 }
 
-int getposition(gearratio){ //判定もちっとガバガバにせないかん
+int get_position(int x){ //判定もちっとガバガバにせないかん
   if(gearratio == first){
     return 1;
   }
